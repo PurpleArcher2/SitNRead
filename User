@@ -1,0 +1,146 @@
+package Project11;
+import java.util.LinkedList;
+
+public class User implements User_Procedures {
+	private int libraryCardNum;
+    private static LinkedList<User> users = new LinkedList<>();
+
+
+    public User(String Name, int Age, String Gender, int libraryCardNum) {
+        super(Name, Age, Gender);
+        this.libraryCardNum = libraryCardNum;
+    }
+
+
+    public User(User user) {
+        super(user.getName(), user.getAge(), user.getGender());
+        this.libraryCardNum = user.getLibraryCardNum();
+    }
+
+    
+    public int getLibraryCardNum() {
+        return libraryCardNum;
+    }
+
+    public void setLibraryCardNum(int libraryCardNum) {
+        this.libraryCardNum = libraryCardNum;
+    }
+
+    public void SearchBookByTitle(String Title) {
+        boolean found = false;
+        int i = 0;
+        while (!found && i < books.size()) {
+            Book book = books.get(i);
+            if (book.getTitle().equalsIgnoreCase(Title)) {
+                System.out.println(book); 
+                found = true;
+            }
+            i++;
+        }
+        if (!found) {
+            System.out.println("Book not found.");
+        }
+    }
+ 
+    public void SearchBookByAuthor(String Author) {
+        boolean found = false;
+        int i = 0;
+        while (!found && i < books.size()) {
+            Book book = books.get(i);
+            if (book.getAuthor().equalsIgnoreCase(Author)) {
+                System.out.println(book.getTitle()); 
+                found = true;
+            }
+            i++;
+        }
+        if (!found) {
+            System.out.println("Books by " + Author + " not found.");
+        }
+    }
+    public void SearchBookByGenre(String Genre) {
+        boolean found = false;
+        int i = 0;
+        while (!found && i < books.size()) {
+            Book book = books.get(i);
+            if (book.getGenre().equalsIgnoreCase(Genre)) {
+                System.out.println(book.getTitle()); 
+                found = true;
+            }
+            i++;
+        }
+        if (!found) {
+            System.out.println("Books in genre " + Genre + " not found.");
+        }
+    }
+    @Override
+    public void BorrowBook(String Title) {
+        boolean found = false;
+        int i = 0;
+        while (!found && i < books.size()) {
+            Book book = books.get(i);
+            if (book.getTitle().equalsIgnoreCase(Title)) {
+                if (book.getStatus().equals("available") && !book.isReserved()) {
+                    book.setStatus("borrowed");
+                    found = true;
+                    System.out.println("Book '" + Title + "' has been borrowed successfully.");
+                } else {
+                    System.out.println("Book '" + Title + "' cannot be borrowed. It is not available or reserved.");
+                }
+            }
+            i++;
+        }
+        if (!found) {
+            System.out.println("Book '" + Title + "' not found.");
+        }
+    }
+
+    @Override
+    public void ReturnBook(String Title) {
+        boolean found = false;
+        int i = 0;
+        while (!found && i < books.size()) {
+            Book book = books.get(i);
+            if (book.getTitle().equalsIgnoreCase(Title)) {
+                if (book.getStatus().equals("borrowed")) {
+                    book.setStatus("available");
+                    found = true;
+                    System.out.println("Book '" + Title + "' has been returned successfully.");
+                } else {
+                    System.out.println("Book '" + Title + "' cannot be returned. It is not borrowed.");
+                }
+            }
+            i++;
+        }
+        if (!found) {
+            System.out.println("Book '" + Title + "' not found.");
+        }
+    }
+
+    @Override
+    public void ReserveBook(String Title) {
+        boolean found = false;
+        int i = 0;
+        while (!found && i < books.size()) {
+            Book book = books.get(i);
+            if (book.getTitle().equalsIgnoreCase(Title)) {
+                if (book.getStatus().equals("available") && !book.isBorrowed()) {
+                    book.setReserved(true);
+                    found = true;
+                    System.out.println("Book '" + Title + "' has been reserved successfully.");
+                } else {
+                    System.out.println("Book '" + Title + "' cannot be reserved. It is not available or borrowed.");
+                }
+            }
+            i++;
+        }
+        if (!found) {
+            System.out.println("Book '" + Title + "' not found.");
+        }
+    }
+
+
+
+}
+
+
+
