@@ -36,7 +36,7 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    public abstract void check_information();
+    public abstract String check_information();
 
     @Override
     public String toString() {
