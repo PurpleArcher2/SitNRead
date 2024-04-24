@@ -8,8 +8,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-public class WelcomePage {
-    private JPanel panel1;
+public class WelcomePage implements ActionListener{
+    public JPanel panel1;
     private JLabel WelcomeMessage;
     private JButton librarianButton;
     private JButton userButton;
@@ -44,8 +44,37 @@ public class WelcomePage {
         WelcomeMessage = new JLabel("Welcome to SitNRead");
         WelcomeMessage.setFont(font);
 
+        userButton = new JButton("User");
+        userButton.addActionListener(this);
+
+        librarianButton = new JButton("Librarian");
+        librarianButton.addActionListener(this);
+
 
 
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if(e.getSource()==userButton){
+            UserLogin newuserlogin = new UserLogin();
+            JFrame userFrame = new JFrame("User Login");
+            userFrame.setContentPane(newuserlogin.panel2);
+            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame.pack();
+            userFrame.setVisible(true);
+            closeOriginalFrame();
+        } else if(e.getSource()==librarianButton){
+            LibrarianLogin newlibrarianlogin = new LibrarianLogin();
+        }
+
+    }
+
+    private void closeOriginalFrame() {
+        Window originalFrame = SwingUtilities.getWindowAncestor(panel1);
+        if (originalFrame != null) {
+            originalFrame.dispose();
+        }
+    }
 }
