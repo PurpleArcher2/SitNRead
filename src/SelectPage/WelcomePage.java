@@ -67,6 +67,12 @@ public class WelcomePage implements ActionListener{
             closeOriginalFrame();
         } else if(e.getSource()==librarianButton){
             LibrarianLogin newlibrarianlogin = new LibrarianLogin();
+            JFrame userFrame = new JFrame("Librarian Login");
+            userFrame.setContentPane(newlibrarianlogin.panel3);
+            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame.pack();
+            userFrame.setVisible(true);
+            closeOriginalFrame();
         }
 
     }

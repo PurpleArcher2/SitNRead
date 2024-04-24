@@ -36,7 +36,7 @@
             <properties>
               <font size="26"/>
               <foreground color="-10468308"/>
-              <text value="Enter Username"/>
+              <text value="Enter ID"/>
             </properties>
           </component>
           <component id="1a1d2" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">

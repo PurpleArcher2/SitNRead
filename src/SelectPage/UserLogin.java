@@ -15,8 +15,7 @@ public class UserLogin implements ActionListener {
 
 
     public UserLogin() {
-        // Set preferred size for the panel
-        panel2.setPreferredSize(new Dimension(400, 300)); // Set your desired width and height
+        panel2.setPreferredSize(new Dimension(400, 300));
     }
 
     public static void main(String[] args) {
