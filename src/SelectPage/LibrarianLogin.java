@@ -7,9 +7,10 @@ import java.awt.event.ActionListener;
 
 public class LibrarianLogin implements ActionListener {
     public JPanel panel3;
-    private JButton backButton;
     private JPasswordField passwordField1;
+    private JButton backButton;
     private JButton button2;
+    private JTextField employeeIDField;
 
     public LibrarianLogin() {
         panel3.setPreferredSize(new Dimension(400, 300));
@@ -44,18 +45,32 @@ public class LibrarianLogin implements ActionListener {
             librarianFrame.setVisible(true);
             closeOriginalFrame();
         } else if (e.getSource() == button2) {
-            String enteredPassword = new String(passwordField1.getPassword());
-            String correctPassword = "tyler";
-            if (enteredPassword.equals(correctPassword)) {
-                JFrame loggedInFrame = new JFrame("Librarian Logged In");
-                loggedInFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                loggedInFrame.setPreferredSize(new Dimension(400, 300));
-                loggedInFrame.pack();
-                loggedInFrame.setLocationRelativeTo(null);
-                loggedInFrame.setVisible(true);
-                closeOriginalFrame();
-            } else {
-                JOptionPane.showMessageDialog(panel3, "Incorrect password. Please try again.");
+
+            try {
+                int employeeID = Integer.parseInt(employeeIDField.getText());
+
+
+                try {
+                    int enteredPassword = Integer.parseInt(new String(passwordField1.getPassword()));
+                    int correctPassword = 1234;
+
+
+                    if (enteredPassword == correctPassword) {
+                        JFrame loggedInFrame = new JFrame("Librarian Logged In");
+                        loggedInFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        loggedInFrame.setPreferredSize(new Dimension(400, 300));
+                        loggedInFrame.pack();
+                        loggedInFrame.setLocationRelativeTo(null);
+                        loggedInFrame.setVisible(true);
+                        closeOriginalFrame();
+                    } else {
+                        JOptionPane.showMessageDialog(panel3, "Incorrect LibrarianCard. Please try again.");
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(panel3, "Invalid password format. Please enter a valid integer.");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(panel3, "Invalid employee ID format. Please enter a valid integer.");
             }
         }
     }
