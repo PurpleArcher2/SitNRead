@@ -48,12 +48,12 @@ public class UserLogin implements ActionListener {
             try {
 
 
-                int enteredLibraryCard = Integer.parseInt(new String(passwordField1.getPassword()));
-                int correctLibraryCard = 2210152;
+                int enterUserCard = Integer.parseInt(new String(passwordField1.getPassword()));
+                int correctUserCard = 2210152;
 
 
-                if (enteredLibraryCard == correctLibraryCard) {
-                    JFrame loggedInFrame = new JFrame("Logged In");
+                if (enterUserCard == correctUserCard) {
+                    JFrame loggedInFrame = new JFrame("User Logged In");
                     loggedInFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     loggedInFrame.setPreferredSize(new Dimension(400, 300));
                     loggedInFrame.pack();
@@ -61,7 +61,7 @@ public class UserLogin implements ActionListener {
                     loggedInFrame.setVisible(true);
                     closeOriginalFrame();
                 } else {
-                    JOptionPane.showMessageDialog(panel2, "Incorrect UserCard number. Please try again.");
+                    JOptionPane.showMessageDialog(panel2, "Incorrect UserCard. Please try again.");
                 }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(panel2, "Invalid UserCard number format. Please enter a valid integer.");
