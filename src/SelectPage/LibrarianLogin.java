@@ -53,12 +53,12 @@
 
 
                         if (enteredLibrarianPassword == correctLibrarianPassword) {
-                            JFrame loggedInFrame = new JFrame("Librarian Logged In");
-                            loggedInFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                            loggedInFrame.setPreferredSize(new Dimension(400, 300));
-                            loggedInFrame.pack();
-                            loggedInFrame.setLocationRelativeTo(null);
-                            loggedInFrame.setVisible(true);
+                            LibrarianAccess LAccess = new LibrarianAccess();
+                            JFrame userFrame = new JFrame("User Login");
+                            userFrame.setContentPane(LAccess.panel5);
+                            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                            userFrame.pack();
+                            userFrame.setVisible(true);
                             closeOriginalFrame();
                         } else {
                             JOptionPane.showMessageDialog(panel3, "Incorrect LibrarianCard. Please try again.");
