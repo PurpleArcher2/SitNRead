@@ -53,12 +53,12 @@ public class UserLogin implements ActionListener {
 
 
                 if (enterUserCard == correctUserCard) {
-                    JFrame loggedInFrame = new JFrame("User Logged In");
-                    loggedInFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    loggedInFrame.setPreferredSize(new Dimension(400, 300));
-                    loggedInFrame.pack();
-                    loggedInFrame.setLocationRelativeTo(null);
-                    loggedInFrame.setVisible(true);
+                    UserAccess userLogin = new UserAccess();
+                    JFrame userFrame = new JFrame("User Login");
+                    userFrame.setContentPane(userLogin.panel4);
+                    userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    userFrame.pack();
+                    userFrame.setVisible(true);
                     closeOriginalFrame();
                 } else {
                     JOptionPane.showMessageDialog(panel2, "Incorrect UserCard. Please try again.");
