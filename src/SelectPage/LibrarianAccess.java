@@ -55,9 +55,9 @@ public class LibrarianAccess implements ActionListener {
 
         if(e.getSource() == LOGOUTButton){
 
-            UserLogin userLogin = new UserLogin();
+            LibrarianLogin LibrarianLogin1= new LibrarianLogin();
             JFrame userFrame = new JFrame("User Login");
-            userFrame.setContentPane(userLogin.panel2);
+            userFrame.setContentPane(LibrarianLogin1.panel3);
             userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             userFrame.pack();
             userFrame.setVisible(true);
