@@ -1,8 +1,10 @@
 package Codes;
 
+
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class User extends Person implements UserProcedures {
+public class User extends Person implements UserProcedures, Serializable {
 
     private int libraryCardNum;
     private static LinkedList<User> users = new LinkedList<>();

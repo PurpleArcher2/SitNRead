@@ -1,5 +1,8 @@
 package SelectPage;
 
+import Codes.User;
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,7 +14,7 @@ public class UserAccess implements ActionListener {
     public JPanel panel4;
     private JButton checkInfoButton;
     private JButton searchBookByTitleButton;
-    private JButton serachBookByAuthorButton;
+    private JButton searchBookByAuthorButton;
     private JButton searchBookByGenreButton;
     private JButton reserveBookButton;
     private JButton borrowBookButton;
@@ -44,6 +47,30 @@ public class UserAccess implements ActionListener {
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         userLogo = new JLabel(scaledIcon);
 
+
+
+        checkInfoButton = new JButton("Check Information");
+        checkInfoButton.addActionListener(this);
+
+        searchBookByTitleButton = new JButton("Search Book Title");
+        searchBookByTitleButton.addActionListener(this);
+
+        searchBookByAuthorButton = new JButton("Search Book by Author");
+        searchBookByAuthorButton.addActionListener(this);
+
+        searchBookByGenreButton = new JButton("Serach book by Genre");
+        searchBookByGenreButton.addActionListener(this);
+
+        reserveBookButton = new JButton("Reserve Book");
+        reserveBookButton.addActionListener(this);
+
+        borrowBookButton = new JButton("Borrow Book");
+        borrowBookButton.addActionListener(this);
+
+        returnBookButton = new JButton("Return Book");
+        returnBookButton.addActionListener(this);
+
+
         LOGOUTButton = new JButton("LOG OUT");
         LOGOUTButton.addActionListener(this);
 
@@ -53,8 +80,28 @@ public class UserAccess implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getSource() == LOGOUTButton){
+        if (e.getSource() == checkInfoButton) {
 
+        } else if (e.getSource() == searchBookByTitleButton) {
+
+
+        } else if (e.getSource() == searchBookByAuthorButton) {
+            // Search for books by an author's name
+            // Implement this
+        } else if (e.getSource() == searchBookByGenreButton) {
+            // Search for books by genre
+            // Implement this
+        } else if (e.getSource() == reserveBookButton) {
+            // Reserve a book
+            // Implement this
+        } else if (e.getSource() == borrowBookButton) {
+            // Borrow a book
+            // Implement this
+        } else if (e.getSource() == returnBookButton) {
+            // Return a book
+            // Implement this
+        } else if (e.getSource() == LOGOUTButton) {
+            // Log out
             UserLogin userLogin = new UserLogin();
             JFrame userFrame = new JFrame("User Login");
             userFrame.setContentPane(userLogin.panel2);
@@ -62,11 +109,9 @@ public class UserAccess implements ActionListener {
             userFrame.pack();
             userFrame.setVisible(true);
             closeOriginalFrame();
-
         }
-
-
     }
+
 
 
     private void closeOriginalFrame() {
