@@ -100,19 +100,18 @@ public class LibrarianAccess implements ActionListener {
             AddLibrarian adl = new AddLibrarian();
             JFrame userFrame = new JFrame("User Login");
             userFrame.setContentPane(adl.MainPanel1);
-            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             userFrame.pack();
             userFrame.setVisible(true);
-            closeOriginalFrame();
+
         } else if(e.getSource() == addUserButton){
 
             AddUser adu = new AddUser();
             JFrame userFrame = new JFrame("User Login");
             userFrame.setContentPane(adu.MainPanel2);
-            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             userFrame.pack();
             userFrame.setVisible(true);
-            closeOriginalFrame();
 
         } else if (e.getSource() == checkInfoButton){
 
@@ -138,7 +137,7 @@ public class LibrarianAccess implements ActionListener {
             SearchBookByTitle sbt = new SearchBookByTitle();
             JFrame userFrame = new JFrame();
             userFrame.setContentPane(sbt.MainPanel);
-            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             userFrame.pack();
             userFrame.setVisible(true);
 
@@ -147,7 +146,7 @@ public class LibrarianAccess implements ActionListener {
             SearchBookByAuthor sbaa = new SearchBookByAuthor();
             JFrame userFrame2 = new JFrame();
             userFrame2.setContentPane(sbaa.MainPanel2);
-            userFrame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             userFrame2.pack();
             userFrame2.setVisible(true);
 
@@ -157,10 +156,20 @@ public class LibrarianAccess implements ActionListener {
             SearchUserByGenre sbg = new SearchUserByGenre();
             JFrame userFram3 = new JFrame();
             userFram3.setContentPane(sbg.MainPanel3);
-            userFram3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFram3.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             userFram3.pack();
             userFram3.setVisible(true);
-            closeOriginalFrame();
+
+        } else if(e.getSource() == borrowBookButton){
+
+            BorrowBook bb = new BorrowBook();
+            JFrame frame = new JFrame();
+            frame.setContentPane(bb.MainPanel);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
+
+
         }
 
 

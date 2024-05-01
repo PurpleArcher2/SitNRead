@@ -100,7 +100,7 @@ public class UserAccess implements ActionListener {
             SearchBookByTitle sbt = new SearchBookByTitle();
             JFrame userFrame = new JFrame();
             userFrame.setContentPane(sbt.MainPanel);
-            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             userFrame.pack();
             userFrame.setVisible(true);
             closeOriginalFrame();
@@ -111,7 +111,7 @@ public class UserAccess implements ActionListener {
             SearchBookByAuthor sbaa = new SearchBookByAuthor();
             JFrame userFrame2 = new JFrame();
             userFrame2.setContentPane(sbaa.MainPanel2);
-            userFrame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             userFrame2.pack();
             userFrame2.setVisible(true);
             closeOriginalFrame();
@@ -121,17 +121,24 @@ public class UserAccess implements ActionListener {
             SearchUserByGenre sbg = new SearchUserByGenre();
             JFrame userFram3 = new JFrame();
             userFram3.setContentPane(sbg.MainPanel3);
-            userFram3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFram3.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             userFram3.pack();
             userFram3.setVisible(true);
             closeOriginalFrame();
 
         } else if (e.getSource() == reserveBookButton) {
-            // Reserve a book
-            // Implement this
+
+
         } else if (e.getSource() == borrowBookButton) {
-            // Borrow a book
-            // Implement this
+
+            BorrowBook bb = new BorrowBook();
+            JFrame frame = new JFrame();
+            frame.setContentPane(bb.MainPanel);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.setVisible(true);
+            frame.pack();
+
+
         } else if (e.getSource() == returnBookButton) {
             // Return a book
             // Implement this
