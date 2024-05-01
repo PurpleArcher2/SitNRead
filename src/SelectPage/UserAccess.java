@@ -117,8 +117,15 @@ public class UserAccess implements ActionListener {
             closeOriginalFrame();
 
         } else if (e.getSource() == searchBookByGenreButton) {
-            // Search for books by genre
-            // Implement this
+
+            SearchUserByGenre sbg = new SearchUserByGenre();
+            JFrame userFram3 = new JFrame();
+            userFram3.setContentPane(sbg.MainPanel3);
+            userFram3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFram3.pack();
+            userFram3.setVisible(true);
+            closeOriginalFrame();
+
         } else if (e.getSource() == reserveBookButton) {
             // Reserve a book
             // Implement this
