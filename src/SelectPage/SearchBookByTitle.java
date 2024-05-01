@@ -2,8 +2,6 @@ package SelectPage;
 
 import Codes.Book;
 import Codes.User;
-import Codes.UserProcedures;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,7 +21,7 @@ public class SearchBookByTitle implements ActionListener {
 
     public SearchBookByTitle(){
         MainPanel.setPreferredSize(new Dimension(400, 300));
-        loadBooksFromFile("book.txt"); // Load books from file when SearchBookByTitle is instantiated
+        loadBooksFromFile("book.txt");
 
     }
 
@@ -49,7 +47,6 @@ public class SearchBookByTitle implements ActionListener {
     }
 
     public static void main(String[] args) {
-        User user = new User("John", 30, "Male", 12345);
         JFrame mainframe = new JFrame("SearchBookByTitle");
         mainframe.setContentPane(new SearchBookByTitle().MainPanel);
         mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

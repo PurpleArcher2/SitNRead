@@ -107,8 +107,15 @@ public class UserAccess implements ActionListener {
 
 
         } else if (e.getSource() == searchBookByAuthorButton) {
-            // Search for books by an author's name
-            // Implement this
+
+            SearchBookByAuthor sbaa = new SearchBookByAuthor();
+            JFrame userFrame2 = new JFrame();
+            userFrame2.setContentPane(sbaa.MainPanel2);
+            userFrame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame2.pack();
+            userFrame2.setVisible(true);
+            closeOriginalFrame();
+
         } else if (e.getSource() == searchBookByGenreButton) {
             // Search for books by genre
             // Implement this

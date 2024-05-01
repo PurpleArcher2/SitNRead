@@ -25,7 +25,7 @@
               <grid row="0" column="1" row-span="11" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="800ec" class="javax.swing.JButton" binding="searchBookByGenreButton" default-binding="true">
+          <component id="800ec" class="javax.swing.JButton" binding="searchBookByGenreButton" custom-create="true" default-binding="true">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -35,7 +35,7 @@
               <text value="Search book by genre"/>
             </properties>
           </component>
-          <component id="9e05f" class="javax.swing.JButton" binding="reserveBookButton" default-binding="true">
+          <component id="9e05f" class="javax.swing.JButton" binding="reserveBookButton" custom-create="true" default-binding="true">
             <constraints>
               <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -45,7 +45,7 @@
               <text value="Reserve Book"/>
             </properties>
           </component>
-          <component id="fdcf" class="javax.swing.JButton" binding="borrowBookButton" default-binding="true">
+          <component id="fdcf" class="javax.swing.JButton" binding="borrowBookButton" custom-create="true" default-binding="true">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -55,7 +55,7 @@
               <text value="Borrow Book"/>
             </properties>
           </component>
-          <component id="1a5f3" class="javax.swing.JButton" binding="returnBookButton" default-binding="true">
+          <component id="1a5f3" class="javax.swing.JButton" binding="returnBookButton" custom-create="true" default-binding="true">
             <constraints>
               <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -95,7 +95,7 @@
               </component>
             </children>
           </grid>
-          <component id="6078f" class="javax.swing.JButton" binding="searchBookByAuthorButton">
+          <component id="6078f" class="javax.swing.JButton" binding="searchBookByAuthorButton" custom-create="true">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
