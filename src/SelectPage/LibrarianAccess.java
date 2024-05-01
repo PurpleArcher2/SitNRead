@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.io.*;
 
 public class LibrarianAccess implements ActionListener {
     public JPanel panel5;
@@ -116,8 +116,51 @@ public class LibrarianAccess implements ActionListener {
 
         } else if (e.getSource() == checkInfoButton){
 
+            if (e.getSource() == checkInfoButton) {
+
+                try (BufferedReader br = new BufferedReader(new FileReader("LoggedInLibrarian.txt"))) {
+                    String userData = br.readLine();
+                    if (userData != null) {
+                        JOptionPane.showMessageDialog(panel5, userData, "User Information", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(panel5, "No user data found.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } catch (FileNotFoundException ex) {
+                    JOptionPane.showMessageDialog(panel5, "User data file not found.", "Error", JOptionPane.ERROR_MESSAGE);
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(panel5, "Error reading user data.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
 
 
+        } else if (e.getSource() == searchBookByTitleButton){
+
+            SearchBookByTitle sbt = new SearchBookByTitle();
+            JFrame userFrame = new JFrame();
+            userFrame.setContentPane(sbt.MainPanel);
+            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame.pack();
+            userFrame.setVisible(true);
+
+        }else if (e.getSource() == searchBookByAuthorButton) {
+
+            SearchBookByAuthor sbaa = new SearchBookByAuthor();
+            JFrame userFrame2 = new JFrame();
+            userFrame2.setContentPane(sbaa.MainPanel2);
+            userFrame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame2.pack();
+            userFrame2.setVisible(true);
+
+
+        } else if (e.getSource() == searchBookByGenreButton) {
+
+            SearchUserByGenre sbg = new SearchUserByGenre();
+            JFrame userFram3 = new JFrame();
+            userFram3.setContentPane(sbg.MainPanel3);
+            userFram3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFram3.pack();
+            userFram3.setVisible(true);
+            closeOriginalFrame();
         }
 
 
