@@ -54,11 +54,17 @@ public class User extends Person implements UserProcedures, Serializable {
     @Override
     public void searchBookByTitle(String title) {
         boolean found = false;
-        StringBuilder resultMessage = new StringBuilder("Search Results for Title: " + title + "\n");
+        StringBuilder resultMessage = new StringBuilder("Search Results for Title: " + title + "\n\n");
 
         for (Book book : Book.getBooks()) {
             if (book.getTitle().equalsIgnoreCase(title)) {
-                resultMessage.append("Found!");
+                resultMessage.append("Title: ").append(book.getTitle()).append("\n");
+                resultMessage.append("Author: ").append(book.getAuthor()).append("\n");
+                resultMessage.append("Genre: ").append(book.getGenre()).append("\n");
+                resultMessage.append("ISBN: ").append(book.getIsbn()).append("\n");
+                resultMessage.append("Availability: ").append(book.isAvailability() ? "Available" : "Not Available").append("\n");
+                resultMessage.append("Reserved: ").append(book.isReserved() ? "Yes" : "No").append("\n");
+                resultMessage.append("\n");
                 found = true;
             }
         }
@@ -71,29 +77,48 @@ public class User extends Person implements UserProcedures, Serializable {
     @Override
     public void searchBookByAuthor(String author) {
         boolean found = false;
+        StringBuilder resultMessage = new StringBuilder("Search Results for Author: " + author + "\n\n");
+
         for (Book book : Book.getBooks()) {
             if (book.getAuthor().equalsIgnoreCase(author)) {
-                System.out.println(book.getTitle());
+                resultMessage.append("Title: ").append(book.getTitle()).append("\n");
+                resultMessage.append("Author: ").append(book.getAuthor()).append("\n");
+                resultMessage.append("Genre: ").append(book.getGenre()).append("\n");
+                resultMessage.append("ISBN: ").append(book.getIsbn()).append("\n");
+                resultMessage.append("Availability: ").append(book.isAvailability() ? "Available" : "Not Available").append("\n");
+                resultMessage.append("Reserved: ").append(book.isReserved() ? "Yes" : "No").append("\n");
+                resultMessage.append("\n");
                 found = true;
             }
         }
         if (!found) {
-            System.out.println("Books by author '" + author + "' not found.");
+            resultMessage.append("Book with author '").append(author).append("' not found.");
         }
+        JOptionPane.showMessageDialog(null, resultMessage.toString());
     }
+
 
     @Override
     public void searchBookByGenre(String genre) {
         boolean found = false;
+        StringBuilder resultMessage = new StringBuilder("Search Results for Author: " + genre + "\n\n");
+
         for (Book book : Book.getBooks()) {
             if (book.getGenre().equalsIgnoreCase(genre)) {
-                System.out.println(book.getTitle());
+                resultMessage.append("Title: ").append(book.getTitle()).append("\n");
+                resultMessage.append("Author: ").append(book.getAuthor()).append("\n");
+                resultMessage.append("Genre: ").append(book.getGenre()).append("\n");
+                resultMessage.append("ISBN: ").append(book.getIsbn()).append("\n");
+                resultMessage.append("Availability: ").append(book.isAvailability() ? "Available" : "Not Available").append("\n");
+                resultMessage.append("Reserved: ").append(book.isReserved() ? "Yes" : "No").append("\n");
+                resultMessage.append("\n");
                 found = true;
             }
         }
         if (!found) {
-            System.out.println("Books in genre '" + genre + "' not found.");
+            resultMessage.append("Book with author '").append(genre).append("' not found.");
         }
+        JOptionPane.showMessageDialog(null, resultMessage.toString());
     }
 
     @Override
