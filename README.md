@@ -62,15 +62,19 @@ the functionalities of the software.
 **Welcome page!**
 ![img.png](img.png)
 <br />
-**User Login** 
+**User Login**
+<br />
 ![img_1.png](img_1.png)
 <br />
 **Librarian Login**
+<br />
 ![img_2.png](img_2.png)
 <br />
 **User HomePage**
+<br />
 ![img_4.png](img_4.png)
 <br />
 **Librarian HomePage**
+<br />
 ![img_3.png](img_3.png)
 
