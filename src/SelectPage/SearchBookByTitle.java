@@ -15,11 +15,11 @@ public class SearchBookByTitle implements ActionListener {
     private JTextField textField1;
     private JButton searchButton;
     public JPanel MainPanel;
-    private JButton backButton;
+
 
     private static LinkedList<Book> books = new LinkedList<Book>();
 
-    public SearchBookByTitle(){
+    public SearchBookByTitle() {
         MainPanel.setPreferredSize(new Dimension(400, 300));
         loadBooksFromFile("book.txt");
 
@@ -58,40 +58,26 @@ public class SearchBookByTitle implements ActionListener {
     private void createUIComponents() {
         searchButton = new JButton();
         searchButton.addActionListener(this);
-        backButton = new JButton();
-        backButton.addActionListener(this);
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-
-        if(e.getSource() == backButton){
-
-            UserAccess ua = new UserAccess();
-            JFrame userFrame = new JFrame("User Access");
-            userFrame.setContentPane(ua.panel4);
-            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            userFrame.pack();
-            userFrame.setVisible(true);
-            closeOriginalFrame();
-
-
-        } else if(e.getSource() == searchButton){
+        if (e.getSource() == searchButton) {
 
             String desiredSearch = textField1.getText().trim();
             User user = new User();
             user.searchBookByTitle(desiredSearch);
         }
-
     }
 
 
-    private void closeOriginalFrame() {
-        Window originalFrame = SwingUtilities.getWindowAncestor(MainPanel);
-        if (originalFrame != null) {
-            originalFrame.dispose();
+        private void closeOriginalFrame() {
+            Window originalFrame = SwingUtilities.getWindowAncestor(MainPanel);
+            if (originalFrame != null) {
+                originalFrame.dispose();
+            }
         }
     }
-}
+

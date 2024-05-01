@@ -12,7 +12,6 @@ public class SearchUserByGenre implements ActionListener {
     public JPanel MainPanel3;
     private JTextField textField1;
     private JButton searchButton;
-    private JButton backButton;
 
     private static LinkedList<Book> books = new LinkedList<Book>();
 
@@ -59,8 +58,7 @@ public class SearchUserByGenre implements ActionListener {
 
         searchButton = new JButton();
         searchButton.addActionListener(this);
-        backButton = new JButton();
-        backButton.addActionListener(this);
+
 
 
     }
@@ -68,18 +66,7 @@ public class SearchUserByGenre implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getSource() == backButton){
-
-            UserAccess ua = new UserAccess();
-            JFrame userFrame = new JFrame("User Access");
-            userFrame.setContentPane(ua.panel4);
-            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            userFrame.pack();
-            userFrame.setVisible(true);
-            closeOriginalFrame();
-
-
-        } else if (e.getSource() == searchButton){
+         if (e.getSource() == searchButton){
 
             String desiredSearch = textField1.getText().trim();
             User user = new User();
