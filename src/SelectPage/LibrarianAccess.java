@@ -104,6 +104,20 @@ public class LibrarianAccess implements ActionListener {
             userFrame.pack();
             userFrame.setVisible(true);
             closeOriginalFrame();
+        } else if(e.getSource() == addUserButton){
+
+            AddUser adu = new AddUser();
+            JFrame userFrame = new JFrame("User Login");
+            userFrame.setContentPane(adu.MainPanel2);
+            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame.pack();
+            userFrame.setVisible(true);
+            closeOriginalFrame();
+
+        } else if (e.getSource() == checkInfoButton){
+
+
+
         }
 
 

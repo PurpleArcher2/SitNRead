@@ -23,7 +23,7 @@ public class AddLibrarian implements ActionListener {
 
     public static void main(String[] args) {
 
-        JFrame mainframe = new JFrame("Startup");
+        JFrame mainframe = new JFrame("Add Librarian");
         mainframe.setContentPane(new AddLibrarian().MainPanel1);
         mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
