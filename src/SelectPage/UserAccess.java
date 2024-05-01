@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
+
 
 public class UserAccess implements ActionListener {
 
@@ -82,6 +84,19 @@ public class UserAccess implements ActionListener {
 
         if (e.getSource() == checkInfoButton) {
 
+            try (BufferedReader br = new BufferedReader(new FileReader("LoggedInUser.txt"))) {
+                String userData = br.readLine();
+                if (userData != null) {
+                    JOptionPane.showMessageDialog(panel4, userData, "User Information", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(panel4, "No user data found.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (FileNotFoundException ex) {
+                JOptionPane.showMessageDialog(panel4, "User data file not found.", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(panel4, "Error reading user data.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
         } else if (e.getSource() == searchBookByTitleButton) {
 
 
@@ -108,6 +123,10 @@ public class UserAccess implements ActionListener {
             userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             userFrame.pack();
             userFrame.setVisible(true);
+            File name = new File("LoggedInUser.txt");
+            if(name.exists()){
+                name.delete();
+            }
             closeOriginalFrame();
         }
     }

@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
-
-import Codes.Librarian;
 import Codes.User;
 import java.io.*;
 
@@ -28,7 +26,7 @@ public class UserLogin implements ActionListener {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 4) { // Ensure correct format
+                if (parts.length == 4) {
                     String name = parts[0].trim();
                     int age = Integer.parseInt(parts[1].trim());
                     String gender = parts[2].trim();
@@ -42,13 +40,6 @@ public class UserLogin implements ActionListener {
         return users;
     }
 
-//    public static void writeUsersToFile(String fileName, LinkedList<User> users) {
-//        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
-//            oos.writeObject(users);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -59,13 +50,6 @@ public class UserLogin implements ActionListener {
             mainframe.setLocationRelativeTo(null);
             mainframe.setVisible(true);
 
-//            LinkedList<User> users = new LinkedList<>();
-//            users.add(new User("John", 25, "Male", 12345));
-//            users.add(new User("Alice", 30, "Female", 54321));
-//
-//            // Example: Write users to file
-//            String userFileName = "UserDB.txt";
-//            writeUsersToFile(userFileName, users);
         });
     }
 
@@ -103,6 +87,15 @@ public class UserLogin implements ActionListener {
 
                     if(user.getLibraryCardNum() == enterUserCard){
                         found = true;
+
+                        try(PrintWriter writer = new PrintWriter("LoggedInUser.txt")){
+                            writer.print(STR."\{user.getName()},\{user.getAge()},\{user.getGender()},\{user.getLibraryCardNum()}");
+
+                        } catch (IOException ez)
+                        {
+                            ez.printStackTrace();
+                        }
+
                         UserAccess userLogin = new UserAccess();
                         JFrame userFrame = new JFrame("User Login");
                         userFrame.setContentPane(userLogin.panel4);
@@ -110,8 +103,11 @@ public class UserLogin implements ActionListener {
                         userFrame.pack();
                         userFrame.setVisible(true);
                         closeOriginalFrame();
+
+
+
                         break;
-                        
+
                     }
                 }
                 if(!found){

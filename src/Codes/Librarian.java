@@ -1,9 +1,10 @@
 package Codes;
+import java.io.Serializable;
 import java.util.Scanner;
 import java.util.LinkedList;
 import java.util.Random;
 
-public class Librarian extends Person implements LibrarianProcedures {
+public class Librarian extends Person implements LibrarianProcedures, Serializable {
     private int employeeID;
     private static LinkedList<Librarian> librarians = new LinkedList<>();
 

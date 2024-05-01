@@ -4,7 +4,11 @@
     import java.awt.*;
     import java.awt.event.ActionEvent;
     import java.awt.event.ActionListener;
+    import Codes.Librarian;
+    import Codes.User;
 
+    import java.io.*;
+    import java.util.LinkedList;
     public class LibrarianLogin implements ActionListener {
         public JPanel panel3;
         private JPasswordField passwordField1;
@@ -14,6 +18,27 @@
 
         public LibrarianLogin() {
             panel3.setPreferredSize(new Dimension(400, 300));
+        }
+
+
+        public static LinkedList<Librarian> readLibrariansFromFile(String fileName) {
+            LinkedList<Librarian> librarians = new LinkedList<>();
+            try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] parts = line.split(",");
+                    if (parts.length == 4) {
+                        String name = parts[0].trim();
+                        int age = Integer.parseInt(parts[1].trim());
+                        String gender = parts[2].trim();
+                        int employeeID = Integer.parseInt(parts[3].trim());
+                        librarians.add(new Librarian(name, age, gender, employeeID));
+                    }
+                }
+            } catch (IOException | NumberFormatException e) {
+                e.printStackTrace();
+            }
+            return librarians;
         }
 
         public static void main(String[] args) {
@@ -48,11 +73,16 @@
 
                 try {
 
-                        int enteredLibrarianPassword = Integer.parseInt(new String(passwordField1.getPassword()));
-                        int correctLibrarianPassword = 1234;
+                    int enterLibrarianCard = Integer.parseInt(new String(passwordField1.getPassword()));
+                    String userFileName = "LibrarianDB.txt";
+                    LinkedList<Librarian> librarians = readLibrariansFromFile(userFileName);
+                    boolean found = false;
 
 
-                        if (enteredLibrarianPassword == correctLibrarianPassword) {
+                    for(Librarian librarian : librarians){
+
+                        if(librarian.getEmployeeID() == enterLibrarianCard){
+                            found = true;
                             LibrarianAccess LAccess = new LibrarianAccess();
                             JFrame userFrame = new JFrame("User Login");
                             userFrame.setContentPane(LAccess.panel5);
@@ -60,12 +90,17 @@
                             userFrame.pack();
                             userFrame.setVisible(true);
                             closeOriginalFrame();
-                        } else {
-                            JOptionPane.showMessageDialog(panel3, "Incorrect LibrarianCard. Please try again.");
+                            break;
                         }
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(panel3, "Invalid LibrarianCard number format. Please enter a valid integer.");
+
+                    } if(!found){
+                        JOptionPane.showMessageDialog(panel3, "Incorrect UserCard. Please try again.");
+                    }
+                }catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(panel3, "Invalid UserCard number format. Please enter a valid integer.");
                 }
+
+
             }
         }
 
