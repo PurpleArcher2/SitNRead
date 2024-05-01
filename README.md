@@ -61,12 +61,16 @@ the functionalities of the software.
 ## _Screenshots_ 
 **Welcome page!**
 ![img.png](img.png)
+<br />
 **User Login** 
 ![img_1.png](img_1.png)
+<br />
 **Librarian Login**
 ![img_2.png](img_2.png)
+<br />
 **User HomePage**
 ![img_4.png](img_4.png)
+<br />
 **Librarian HomePage**
 ![img_3.png](img_3.png)
 
