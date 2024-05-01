@@ -1,8 +1,6 @@
 package SelectPage;
 
 import Codes.User;
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -98,6 +96,14 @@ public class UserAccess implements ActionListener {
             }
 
         } else if (e.getSource() == searchBookByTitleButton) {
+
+            SearchBookByTitle sbt = new SearchBookByTitle();
+            JFrame userFrame = new JFrame();
+            userFrame.setContentPane(sbt.MainPanel);
+            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame.pack();
+            userFrame.setVisible(true);
+            closeOriginalFrame();
 
 
         } else if (e.getSource() == searchBookByAuthorButton) {

@@ -12,6 +12,10 @@ public abstract class Person {
         this.gender = gender;
     }
 
+    public Person() {
+
+    }
+
     public String getName() {
         return name;
     }

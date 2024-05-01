@@ -1,6 +1,7 @@
 package Codes;
 
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.LinkedList;
 
@@ -17,6 +18,10 @@ public class User extends Person implements UserProcedures, Serializable {
     public User(User user) {
         super(user.getName(), user.getAge(), user.getGender());
         this.libraryCardNum = user.libraryCardNum;
+    }
+
+    public User() {
+        super();
     }
 
     public int getLibraryCardNum() {
@@ -49,16 +54,18 @@ public class User extends Person implements UserProcedures, Serializable {
     @Override
     public void searchBookByTitle(String title) {
         boolean found = false;
+        StringBuilder resultMessage = new StringBuilder("Search Results for Title: " + title + "\n");
+
         for (Book book : Book.getBooks()) {
             if (book.getTitle().equalsIgnoreCase(title)) {
-                System.out.println(book.toString());
+                resultMessage.append("Found!");
                 found = true;
-                break;
             }
         }
         if (!found) {
-            System.out.println("Book with title '" + title + "' not found.");
+            resultMessage.append("Book with title '").append(title).append("' not found.");
         }
+        JOptionPane.showMessageDialog(null, resultMessage.toString());
     }
 
     @Override

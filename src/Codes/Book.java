@@ -10,7 +10,7 @@ public class Book {
     private String genre;
     private boolean availability;
     private boolean reserved;
-    private static  LinkedList<Book> books = new LinkedList<>();
+    private static LinkedList<Book> books = new LinkedList<>();
 
 
     public Book() {
@@ -30,6 +30,7 @@ public class Book {
         this.genre = genre;
         this.availability = availability;
         this.reserved = reserved;
+        books.add(this);
     }
 
     public Book(Book bookz){
@@ -102,7 +103,13 @@ public class Book {
                 ", reserved=" + reserved +
                 '}';
     }
+
+    public static void addBookToList(Book book) {
+        books.add(book);
+    }
     public static LinkedList<Book> getBooks(){
         return books;
     }
+
+
 }
