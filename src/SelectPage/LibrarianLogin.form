@@ -56,7 +56,7 @@
         </constraints>
         <properties>
           <foreground color="-10468308"/>
-          <text value="Button"/>
+          <text value="Log in"/>
         </properties>
       </component>
     </children>

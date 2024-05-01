@@ -103,7 +103,7 @@ public class UserAccess implements ActionListener {
             userFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             userFrame.pack();
             userFrame.setVisible(true);
-            closeOriginalFrame();
+
 
 
         } else if (e.getSource() == searchBookByAuthorButton) {
@@ -114,7 +114,7 @@ public class UserAccess implements ActionListener {
             userFrame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             userFrame2.pack();
             userFrame2.setVisible(true);
-            closeOriginalFrame();
+
 
         } else if (e.getSource() == searchBookByGenreButton) {
 
@@ -124,9 +124,16 @@ public class UserAccess implements ActionListener {
             userFram3.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             userFram3.pack();
             userFram3.setVisible(true);
-            closeOriginalFrame();
+
 
         } else if (e.getSource() == reserveBookButton) {
+
+            ReserveBook rb = new ReserveBook();
+            JFrame frame = new JFrame();
+            frame.setContentPane(rb.MainPanel);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.setVisible(true);
+            frame.pack();
 
 
         } else if (e.getSource() == borrowBookButton) {
@@ -147,7 +154,6 @@ public class UserAccess implements ActionListener {
             frame.pack();
             frame.setVisible(true);
         } else if (e.getSource() == LOGOUTButton) {
-            // Log out
             UserLogin userLogin = new UserLogin();
             JFrame userFrame = new JFrame("User Login");
             userFrame.setContentPane(userLogin.panel2);

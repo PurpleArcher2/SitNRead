@@ -98,6 +98,7 @@ public class User extends Person implements UserProcedures, Serializable {
     }
 
 
+
     @Override
     public void searchBookByGenre(String genre) {
         boolean found = false;
@@ -168,16 +169,16 @@ public class User extends Person implements UserProcedures, Serializable {
             if (book.getTitle().equalsIgnoreCase(title)) {
                 if (book.isAvailability() && !book.isReserved()) {
                     book.setReserved(true);
-                    System.out.println("Book '" + title + "' reserved successfully.");
+                    JOptionPane.showMessageDialog(null, "Book '" + book.getTitle() + "' reserved successfully.");
                 } else {
-                    System.out.println("Book '" + title + "' cannot be reserved.");
+                    JOptionPane.showMessageDialog(null, "Book '" + "Cannot be reserved!" );
                 }
                 found = true;
                 break;
             }
         }
         if (!found) {
-            System.out.println("Book with title '" + title + "' not found.");
+            JOptionPane.showMessageDialog(null, "Book " + "Not Found");
         }
     }
 }

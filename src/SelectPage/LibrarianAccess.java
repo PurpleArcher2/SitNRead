@@ -178,6 +178,13 @@ public class LibrarianAccess implements ActionListener {
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.pack();
             frame.setVisible(true);
+        } else if(e.getSource() == reserveBookButton){
+            ReserveBook rbb = new ReserveBook();
+            JFrame frame = new JFrame();
+            frame.setContentPane(rbb.MainPanel);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
         }
 
 
