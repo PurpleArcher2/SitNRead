@@ -140,8 +140,12 @@ public class UserAccess implements ActionListener {
 
 
         } else if (e.getSource() == returnBookButton) {
-            // Return a book
-            // Implement this
+            ReturnBook rb = new ReturnBook();
+            JFrame frame = new JFrame();
+            frame.setContentPane(rb.MainPanel);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
         } else if (e.getSource() == LOGOUTButton) {
             // Log out
             UserLogin userLogin = new UserLogin();

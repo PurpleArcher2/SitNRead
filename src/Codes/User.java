@@ -148,16 +148,16 @@ public class User extends Person implements UserProcedures, Serializable {
             if (book.getTitle().equalsIgnoreCase(title)) {
                 if (!book.isAvailability() && !book.isReserved()) {
                     book.setAvailability(true);
-                    System.out.println("Book '" + title + "' returned successfully.");
+                    JOptionPane.showMessageDialog(null, "Book '" + book.getTitle() + "' returned successfully.");
                 } else {
-                    System.out.println("Book '" + title + "' cannot be returned.");
+                    JOptionPane.showMessageDialog(null, "Book '" + "Cannot be returned!" );
                 }
                 found = true;
                 break;
             }
         }
         if (!found) {
-            System.out.println("Book with title '" + title + "' not found.");
+            JOptionPane.showMessageDialog(null, "Book " + "Not Found");
         }
     }
 

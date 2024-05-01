@@ -170,6 +170,14 @@ public class LibrarianAccess implements ActionListener {
             frame.setVisible(true);
 
 
+        } else if(e.getSource() == returnBookButton){
+
+            ReturnBook rb = new ReturnBook();
+            JFrame frame = new JFrame();
+            frame.setContentPane(rb.MainPanel);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
         }
 
 
