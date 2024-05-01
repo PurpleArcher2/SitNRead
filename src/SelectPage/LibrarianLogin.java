@@ -83,6 +83,15 @@
 
                         if(librarian.getEmployeeID() == enterLibrarianCard){
                             found = true;
+
+                            try(PrintWriter writer = new PrintWriter("LoggedInLibrarian.txt")){
+                                writer.print(STR."\{librarian.getName()},\{librarian.getAge()},\{librarian.getGender()},\{librarian.getEmployeeID()}");
+
+                            } catch (IOException ez)
+                            {
+                                ez.printStackTrace();
+                            }
+
                             LibrarianAccess LAccess = new LibrarianAccess();
                             JFrame userFrame = new JFrame("User Login");
                             userFrame.setContentPane(LAccess.panel5);

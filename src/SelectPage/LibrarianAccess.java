@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class LibrarianAccess implements ActionListener {
     public JPanel panel5;
@@ -45,6 +46,33 @@ public class LibrarianAccess implements ActionListener {
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         LibrarianImage = new JLabel(scaledIcon);
 
+        addLibrarianButton = new JButton("Add Librarian");
+        addLibrarianButton.addActionListener(this);
+
+        addUserButton = new JButton("Add User");
+        addUserButton.addActionListener(this);
+
+        checkInfoButton = new JButton("Check info");
+        checkInfoButton.addActionListener(this);
+
+        searchBookByTitleButton = new JButton("Search by Title");
+        searchBookByTitleButton.addActionListener(this);
+
+        searchBookByAuthorButton = new JButton("Search By Autho");
+        searchBookByAuthorButton.addActionListener(this);
+
+        searchBookByGenreButton = new JButton("Search by Genre");
+        searchBookByGenreButton.addActionListener(this);
+
+        borrowBookButton = new JButton("borrow book");
+        borrowBookButton.addActionListener(this);
+
+        returnBookButton = new JButton("Return book");
+        returnBookButton.addActionListener(this);
+
+        reserveBookButton = new JButton("Reserve book");
+        reserveBookButton.addActionListener(this);
+
         LOGOUTButton = new JButton("LOG OUT");
         LOGOUTButton.addActionListener(this);
 
@@ -61,8 +89,21 @@ public class LibrarianAccess implements ActionListener {
             userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             userFrame.pack();
             userFrame.setVisible(true);
+            File name = new File("LoggedInLibrarian.txt");
+            if(name.exists()){
+                name.delete();
+            }
             closeOriginalFrame();
 
+        } else if (e.getSource() == addLibrarianButton){
+
+            AddLibrarian adl = new AddLibrarian();
+            JFrame userFrame = new JFrame("User Login");
+            userFrame.setContentPane(adl.MainPanel1);
+            userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userFrame.pack();
+            userFrame.setVisible(true);
+            closeOriginalFrame();
         }
 
 
