@@ -1,7 +1,7 @@
 # SitNRead Library group Project
 
 ## *Get to know the project!*
-The end of the semester is on its way, so are the project, and this is one of them
+The end of the semester is on its way, so are the projects, and this is one of them
 The students of Haigazian University who were partaking the course **Advanced Computer Programming & Data Structure** *(CSC 204)*
 <br />
 <br />
