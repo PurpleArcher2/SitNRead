@@ -1,3 +1,5 @@
-1920,AtomicHabits,JamesClear,SelfHelp,true,false
+1920,AtomicHabits,JamesClear,SelfHelp,false,false
 1926,AllMySons,ArhurMiller,play,false,false
-2930,ClancyJournal,TylerJoseph,Novel,true,false
+2930,ClancyJournal,TylerJoseph,Novel,true,true
+2014,Circe,Madeline,Novel,true,false
+1965,Dune,Frank,SCI-FI,true,false
