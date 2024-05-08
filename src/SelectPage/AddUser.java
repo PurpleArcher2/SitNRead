@@ -43,7 +43,7 @@ public class AddUser implements ActionListener {
         if (e.getSource() == backButton) {
 
             LibrarianAccess lac = new LibrarianAccess();
-            JFrame userFrame = new JFrame("User Login");
+            JFrame userFrame = new JFrame("Librarian Login");
             userFrame.setContentPane(lac.panel5);
             userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             userFrame.pack();

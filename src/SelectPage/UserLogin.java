@@ -76,21 +76,16 @@ public class UserLogin implements ActionListener {
             closeOriginalFrame();
         } else if (e.getSource() == logInButton) {
             try {
-
-
                 int enterUserCard = Integer.parseInt(new String(passwordField1.getPassword()));
                 String userFileName = "UserDB.txt";
                 LinkedList<User> users = readUsersFromFile(userFileName);
                 boolean found = false;
 
                 for(User user : users){
-
                     if(user.getLibraryCardNum() == enterUserCard){
                         found = true;
-
                         try(PrintWriter writer = new PrintWriter("LoggedInUser.txt")){
                             writer.print(STR."\{user.getName()},\{user.getAge()},\{user.getGender()},\{user.getLibraryCardNum()}");
-
                         } catch (IOException ez)
                         {
                             ez.printStackTrace();

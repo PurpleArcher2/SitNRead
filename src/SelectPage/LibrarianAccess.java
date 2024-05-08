@@ -19,6 +19,7 @@ public class LibrarianAccess implements ActionListener {
     private JButton reserveBookButton;
     private JButton LOGOUTButton;
     private JLabel LibrarianImage;
+    private JButton addBookButton;
 
 
     public LibrarianAccess(){
@@ -75,6 +76,9 @@ public class LibrarianAccess implements ActionListener {
 
         LOGOUTButton = new JButton("LOG OUT");
         LOGOUTButton.addActionListener(this);
+
+        addBookButton = new JButton("add book");
+        addBookButton.addActionListener(this);
 
     }
 
@@ -182,6 +186,13 @@ public class LibrarianAccess implements ActionListener {
             ReserveBook rbb = new ReserveBook();
             JFrame frame = new JFrame();
             frame.setContentPane(rbb.MainPanel);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
+        } else if(e.getSource() == addBookButton){
+            addBook adb = new addBook();
+            JFrame frame = new JFrame();
+            frame.setContentPane(adb.MainPanel);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.pack();
             frame.setVisible(true);
