@@ -46,9 +46,9 @@ public class AddLibrarian implements ActionListener {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length >= 4) {
-                    int existingID = Integer.parseInt(parts[3].trim()); 
+                    int existingID = Integer.parseInt(parts[3].trim());
                     if (existingID == id) {
-                        return true; // ID exists
+                        return true;
                     }
                 }
             }
@@ -108,7 +108,7 @@ public class AddLibrarian implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Invalid ID. ID must be a positive integer.");
                 return;
             }
-            if (isDuplicateID(id)) { // You need to implement this method
+            if (isDuplicateID(id)) {
                 JOptionPane.showMessageDialog(null, "Duplicate ID detected. Please enter a unique ID.");
                 return;
             }
