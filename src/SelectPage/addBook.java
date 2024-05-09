@@ -58,7 +58,7 @@ public class addBook implements ActionListener {
             String genre = textField4.getText();
             String filePath = "book.txt";
 
-            // Append the new book details to the file
+
             try (FileWriter fw = new FileWriter(filePath, true);
                  PrintWriter pw = new PrintWriter(fw)) {
                 pw.println(STR."\{id},\{title},\{author},\{genre},true,false");

@@ -64,7 +64,7 @@ public class ReturnBook implements ActionListener {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("book.txt"))) {
             for (Book book : books) {
                 if (book.getTitle().equalsIgnoreCase(title)) {
-                    book.setAvailability(true); // Set availability to true when returning
+                    book.setAvailability(true);
                 }
                 bw.write(book.getIsbn() + "," + book.getTitle() + "," + book.getAuthor() + "," + book.getGenre() + "," +
                         book.isAvailability() + "," + book.isReserved() + "\n");

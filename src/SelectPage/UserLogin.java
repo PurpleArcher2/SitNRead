@@ -53,10 +53,6 @@ public class UserLogin implements ActionListener {
         });
     }
 
-//    Function that reads the User from file
-
-
-
     private void createUIComponents() {
         Back = new JButton("BACK");
         Back.addActionListener(this);
