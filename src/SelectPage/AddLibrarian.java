@@ -40,6 +40,23 @@ public class AddLibrarian implements ActionListener {
         submitButton.addActionListener(this);
     }
 
+    private boolean isDuplicateID(int id) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("LibrarianDB.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 4) {
+                    int existingID = Integer.parseInt(parts[3].trim()); 
+                    if (existingID == id) {
+                        return true; // ID exists
+                    }
+                }
+            }
+        } catch (IOException | NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -91,7 +108,10 @@ public class AddLibrarian implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Invalid ID. ID must be a positive integer.");
                 return;
             }
-
+            if (isDuplicateID(id)) { // You need to implement this method
+                JOptionPane.showMessageDialog(null, "Duplicate ID detected. Please enter a unique ID.");
+                return;
+            }
 
             writeToFile(STR."\{name},\{age},\{gender},\{id}", "LibrarianDB.txt");
 
